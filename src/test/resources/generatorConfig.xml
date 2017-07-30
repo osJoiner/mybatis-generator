@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties resource="jdbc.properties" />
+  <classPathEntry location="${classPathEntry}" />
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="${driverClassName}"
+        connectionURL="${url}"
+        userId="${username}"
+        password="${password}">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="${package}.domain" targetProject="${targetProject}">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="${package}.mapping"  targetProject="${targetProject}">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="${package}.mapper"  targetProject="${targetProject}">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+   <table  tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
+      <columnOverride column="id" jdbcType="LONG" javaType="long" />
+      <ignoreColumn column="FRED" />
+    </table> 
+	<table tableName="user" domainObjectName="User1" enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+  </context>
+</generatorConfiguration>
